@@ -410,17 +410,17 @@
         }
 
         thead th.sortable::after {
-            content: 'â¬';
+            content: '⬍';
             opacity: 0.3;
         }
 
         thead th.sort-asc::after {
-            content: 'â²';
+            content: '▲';
             opacity: 1;
         }
 
         thead th.sort-desc::after {
-            content: 'â¼';
+            content: '▼';
             opacity: 1;
         }
 
@@ -681,27 +681,27 @@
         <!-- Row 1: KPI Cards -->
         <div class="kpi-row">
             <div class="kpi-card">
-                <div class="kpi-icon">ð</div>
-                <div class="kpi-value" data-target="31">0</div>
+                <div class="kpi-icon">📊</div>
+                <div class="kpi-value" data-target="35">0</div>
                 <div class="kpi-label">Total Prospects</div>
             </div>
             <div class="kpi-card">
-                <div class="kpi-icon">ð¥</div>
-                <div class="kpi-value" data-target="15">0</div>
+                <div class="kpi-icon">👥</div>
+                <div class="kpi-value" data-target="31">0</div>
                 <div class="kpi-label">Contacts Enriched</div>
             </div>
             <div class="kpi-card">
-                <div class="kpi-icon">ð§</div>
+                <div class="kpi-icon">📧</div>
                 <div class="kpi-value" data-target="0">0</div>
                 <div class="kpi-label">Active Outreach</div>
             </div>
             <div class="kpi-card">
-                <div class="kpi-icon">ð</div>
+                <div class="kpi-icon">📅</div>
                 <div class="kpi-value" data-target="0">0</div>
                 <div class="kpi-label">Meetings Set</div>
             </div>
             <div class="kpi-card">
-                <div class="kpi-icon">ð°</div>
+                <div class="kpi-icon">💰</div>
                 <div class="kpi-value" data-target="0">0</div>
                 <div class="kpi-label">Pipeline Value</div>
             </div>
@@ -781,7 +781,7 @@
                             <option value="all">All Industries</option>
                         </select>
                     </div>
-                    <span class="filter-count" id="filterCount">31 prospects</span>
+                    <span class="filter-count" id="filterCount">35 prospects</span>
                     <button class="filter-reset" id="filterReset">Reset Filters</button>
                 </div>
                 <div class="table-wrapper">
@@ -848,64 +848,121 @@
     <script>
         // Data
         const prospectData = [
+            // Energy/Oil & Gas
             { score: 98, company: 'Saudi Aramco', industry: 'Energy/Oil & Gas', region: 'Saudi Arabia', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
-            { score: 95, company: 'HSBC', industry: 'Financial Services', region: 'UK/UAE', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
+            { score: 96, company: 'Shell', industry: 'Energy/Oil & Gas', region: 'UK', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
+            { score: 95, company: 'bp', industry: 'Energy/Oil & Gas', region: 'UK', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
+            { score: 94, company: 'TotalEnergies', industry: 'Energy/Oil & Gas', region: 'EU', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
             { score: 90, company: 'ADNOC', industry: 'Energy/Oil & Gas', region: 'UAE', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
             { score: 88, company: 'QatarEnergy', industry: 'Energy/Oil & Gas', region: 'Qatar', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
+            // Oil & Gas Construction (NEW SECTOR)
+            { score: 93, company: 'Bechtel Corporation', industry: 'Oil & Gas Construction', region: 'US/Saudi Arabia', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
+            { score: 91, company: 'Fluor Corporation', industry: 'Oil & Gas Construction', region: 'US', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
+            { score: 90, company: 'McDermott International', industry: 'Oil & Gas Construction', region: 'US/UAE', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
+            { score: 89, company: 'TechnipFMC', industry: 'Oil & Gas Construction', region: 'UK', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
+            { score: 88, company: 'Saipem', industry: 'Oil & Gas Construction', region: 'EU', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
+            { score: 87, company: 'AECOM', industry: 'Oil & Gas Construction', region: 'US/UAE', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
+            { score: 86, company: 'KBR, Inc.', industry: 'Oil & Gas Construction', region: 'US', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
+            { score: 85, company: 'Wood', industry: 'Oil & Gas Construction', region: 'UK', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
+            { score: 84, company: 'Petrofac', industry: 'Oil & Gas Construction', region: 'UK/UAE', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
+            { score: 83, company: 'Worley', industry: 'Oil & Gas Construction', region: 'UK/UAE', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
+            // Financial Services
+            { score: 95, company: 'HSBC', industry: 'Financial Services', region: 'UK/UAE', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
             { score: 85, company: 'J.P. Morgan', industry: 'Financial Services', region: 'US', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
             { score: 85, company: 'Saudi National Bank', industry: 'Financial Services', region: 'Saudi Arabia', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
-            { score: 82, company: 'Pfizer', industry: 'Healthcare/Pharma', region: 'US', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
             { score: 82, company: 'Emirates NBD', industry: 'Financial Services', region: 'UAE', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
             { score: 81, company: 'Standard Chartered', industry: 'Financial Services', region: 'UK/UAE', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
             { score: 80, company: 'Goldman Sachs', industry: 'Financial Services', region: 'US', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
             { score: 80, company: 'Qatar National Bank', industry: 'Financial Services', region: 'Qatar', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
-            { score: 80, company: 'Johnson & Johnson', industry: 'Healthcare', region: 'US', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
             { score: 79, company: 'Barclays', industry: 'Financial Services', region: 'UK', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
-            { score: 79, company: 'AstraZeneca', industry: 'Healthcare/Pharma', region: 'UK/EU', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
-            { score: 78, company: 'Siemens', industry: 'Manufacturing', region: 'EU', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
-            { score: 77, company: 'Roche', industry: 'Healthcare/Pharma', region: 'EU', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
-            { score: 75, company: 'IDEXX Laboratories', industry: 'Animal Health Tech', region: 'US', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CPT' },
             { score: 75, company: 'Deutsche Bank', industry: 'Financial Services', region: 'EU', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
+            // Healthcare/Pharma
+            { score: 86, company: 'UnitedHealth Group', industry: 'Healthcare', region: 'US', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
+            { score: 84, company: 'Novartis', industry: 'Healthcare/Pharma', region: 'EU', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
+            { score: 82, company: 'Pfizer', industry: 'Healthcare/Pharma', region: 'US', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
+            { score: 80, company: 'Johnson & Johnson', industry: 'Healthcare', region: 'US', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
+            { score: 79, company: 'AstraZeneca', industry: 'Healthcare/Pharma', region: 'UK/EU', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
+            { score: 77, company: 'Roche', industry: 'Healthcare/Pharma', region: 'EU', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
+            // Manufacturing
+            { score: 78, company: 'Siemens', industry: 'Manufacturing', region: 'EU', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CT' },
+            // Animal Health / Pet Care (CPT)
+            { score: 75, company: 'IDEXX Laboratories', industry: 'Animal Health Tech', region: 'US', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CPT' },
             { score: 73, company: 'Zoetis', industry: 'Animal Health', region: 'US', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CPT' },
             { score: 72, company: 'Mars Petcare', industry: 'Pet Care', region: 'US/EU', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CPT' },
             { score: 70, company: 'Nestle Purina', industry: 'Pet Care', region: 'US/EU', stage: 'Awareness', fit: 'High', priority: 'P1', product: 'CPT' }
         ];
 
         const contactData = [
+            // Saudi Aramco
             { score: 98, contact: 'Ahmad Al Khowaiter', title: 'CTO', company: 'Saudi Aramco', location: 'Saudi Arabia', status: 'Not Started' },
             { score: 98, contact: 'Nayef AlOtaibi', title: 'VP Digital & CDO', company: 'Saudi Aramco', location: 'Saudi Arabia', status: 'Not Started' },
             { score: 98, contact: 'Basim AlRuwaii', title: 'VP IT Infrastructure', company: 'Saudi Aramco', location: 'Saudi Arabia', status: 'Not Started' },
             { score: 98, contact: 'Omar Al-Thukair', title: 'VP & CDO (Acting)', company: 'Saudi Aramco', location: 'Al Khobar, SA', status: 'Not Started' },
+            // Shell
+            { score: 96, contact: 'Wael Sawan', title: 'CEO', company: 'Shell', location: 'London, UK', status: 'Not Started' },
+            // bp
+            { score: 95, contact: 'Ann Davies', title: 'SVP Wells', company: 'bp', location: 'London, UK', status: 'Not Started' },
+            // HSBC
             { score: 95, contact: 'Stuart Riley', title: 'Group CIO', company: 'HSBC', location: 'London, UK', status: 'Not Started' },
             { score: 95, contact: 'Frank McGrath', title: 'Group CTO', company: 'HSBC', location: 'London, UK', status: 'Not Started' },
             { score: 95, contact: 'Sawsan Mounzer', title: 'CIO, MENAT', company: 'HSBC', location: 'Dubai, UAE', status: 'Not Started' },
             { score: 95, contact: 'Linoy Kidd', title: 'GBM MENAT CIO', company: 'HSBC', location: 'Dubai, UAE', status: 'Not Started' },
             { score: 95, contact: 'Milly Webb', title: 'CIO, Enterprise Tech', company: 'HSBC', location: 'London, UK', status: 'Not Started' },
+            // Bechtel
+            { score: 93, contact: 'Brendan Bechtel', title: 'Chairman and CEO', company: 'Bechtel Corporation', location: 'Washington, DC', status: 'Not Started' },
+            { score: 93, contact: 'Abdul-Rahman AL-Ghabban', title: 'President, Saudi Bechtel & Regional Mgr ME', company: 'Bechtel Corporation', location: 'Riyadh, SA', status: 'Not Started' },
+            // Fluor
+            { score: 91, contact: 'Kim Stone', title: 'Director II, Marketing Services', company: 'Fluor Corporation', location: 'Colorado, US', status: 'Not Started' },
+            // McDermott
+            { score: 90, contact: 'Aimee Leigh Lewis', title: 'Senior TA - Construction & Fabrication', company: 'McDermott International', location: 'Dubai, UAE', status: 'Not Started' },
+            // TechnipFMC
+            { score: 89, contact: 'Nicolas Behbahani', title: 'Director Global People Analytics', company: 'TechnipFMC', location: 'Paris, FR', status: 'Not Started' },
+            // Saipem
+            { score: 88, contact: 'Federico Bonelli', title: 'System Engineering Manager', company: 'Saipem', location: 'Milan, IT', status: 'Not Started' },
+            // AECOM
+            { score: 87, contact: 'Oliver Pereira', title: 'Senior TA Advisor, MEA', company: 'AECOM', location: 'Dubai, UAE', status: 'Not Started' },
+            // KBR
+            { score: 86, contact: 'Sean McGuire', title: 'Director Global Talent Acquisition', company: 'KBR, Inc.', location: 'Dubai, UAE', status: 'Not Started' },
+            // Wood
+            { score: 85, contact: 'Suhail Diaz Valderrama', title: 'Director Future Energies ME', company: 'Wood', location: 'Abu Dhabi, UAE', status: 'Not Started' },
+            // Petrofac
+            { score: 84, contact: 'Tareq Kawash', title: 'Group Chief Executive', company: 'Petrofac', location: 'London, UK', status: 'Not Started' },
+            // Worley
+            { score: 83, contact: 'Yousef AlBuainain', title: 'TA & Mobilization Mgr - KSA/Bahrain/Egypt', company: 'Worley', location: 'Al Khobar, SA', status: 'Not Started' },
+            // UnitedHealth Group
+            { score: 86, contact: 'Sandeep Dadlani', title: 'CEO - Optum Insight', company: 'UnitedHealth Group', location: 'New York, US', status: 'Not Started' },
+            // Novartis
+            { score: 84, contact: 'Vas Narasimhan', title: 'CEO', company: 'Novartis', location: 'Basel, CH', status: 'Not Started' },
+            // J.P. Morgan
             { score: 85, contact: 'Michael Urciuoli', title: 'CIO & CDO, AWM', company: 'J.P. Morgan', location: 'New York, NY', status: 'Not Started' },
             { score: 85, contact: 'Joe Pedone', title: 'CTO, AWM', company: 'J.P. Morgan', location: 'New York City', status: 'Not Started' },
             { score: 85, contact: 'Erin King', title: 'CIO, Global Banking', company: 'J.P. Morgan', location: 'Atlanta, GA', status: 'Not Started' },
+            // Pfizer
             { score: 82, contact: 'Jason O\'Meara', title: 'VP Digital Strategy', company: 'Pfizer', location: 'Cary, NC', status: 'Not Started' },
             { score: 82, contact: 'John Kelleher', title: 'VP Digital & Tech', company: 'Pfizer', location: 'Morristown, NJ', status: 'Not Started' },
-            { score: 82, contact: 'Katie Wietmarschen', title: 'VP Digital Enterprise', company: 'Pfizer', location: 'Cincinnati, OH', status: 'Not Started' }
+            { score: 82, contact: 'Katie Wietmarschen', title: 'VP Digital Enterprise', company: 'Pfizer', location: 'Cincinnati, OH', status: 'Not Started' },
+            // TotalEnergies
+            { score: 94, contact: 'Patrick Pouyanné', title: 'Chairman & CEO', company: 'TotalEnergies', location: 'Paris, FR', status: 'Not Started' },
+            { score: 94, contact: 'Michel Lutz', title: 'Digital Factory Head of Data & AI', company: 'TotalEnergies', location: 'Paris, FR', status: 'Not Started' }
         ];
 
         const activityData = [
             { time: '12:15 PM', desc: 'Daily monitoring scheduled: Weekdays at 8:00 AM', color: 'green' },
-            { time: '12:09 PM', desc: 'Clay enrichment: Siemens â contacts in DE & UK', color: 'blue' },
-            { time: '12:08 PM', desc: 'Clay enrichment: Saudi Aramco â CTO & CDO identified (Score: 98)', color: 'blue' },
-            { time: '12:07 PM', desc: 'Clay enrichment: Pfizer â 4 VP Digital contacts found', color: 'blue' },
-            { time: '12:06 PM', desc: 'Clay enrichment: HSBC â 6 decision makers (incl. MENAT CIOs)', color: 'blue' },
-            { time: '12:05 PM', desc: 'Clay enrichment: J.P. Morgan â 4 decision makers identified', color: 'blue' },
+            { time: '12:09 PM', desc: 'Clay enrichment: Siemens — contacts in DE & UK', color: 'blue' },
+            { time: '12:08 PM', desc: 'Clay enrichment: Saudi Aramco — CTO & CDO identified (Score: 98)', color: 'blue' },
+            { time: '12:07 PM', desc: 'Clay enrichment: Pfizer — 4 VP Digital contacts found', color: 'blue' },
+            { time: '12:06 PM', desc: 'Clay enrichment: HSBC — 6 decision makers (incl. MENAT CIOs)', color: 'blue' },
+            { time: '12:05 PM', desc: 'Clay enrichment: J.P. Morgan — 4 decision makers identified', color: 'blue' },
             { time: '12:00 PM', desc: 'Sales Agent initialized. 31 companies loaded across 6 regions.', color: 'neutral' }
         ];
 
         const regionData = {
-            'United States': { companies: 13, contacts: 8 },
-            'United Kingdom': { companies: 7, contacts: 6 },
-            'European Union': { companies: 6, contacts: 0 },
-            'UAE': { companies: 3, contacts: 3 },
-            'Qatar': { companies: 1, contacts: 0 },
-            'Saudi Arabia': { companies: 2, contacts: 4 }
+            'United States': { companies: 16, contacts: 12 },
+            'United Kingdom': { companies: 11, contacts: 9 },
+            'European Union': { companies: 8, contacts: 4 },
+            'UAE': { companies: 6, contacts: 5 },
+            'Qatar': { companies: 2, contacts: 0 },
+            'Saudi Arabia': { companies: 3, contacts: 5 }
         };
 
         // Initialize on page load
@@ -1042,7 +1099,7 @@
                         </div>
                         <div class="progress-label">0/45 days</div>
                     </td>
-                    <td><a class="link-icon" href="https://linkedin.com" target="_blank" title="Open LinkedIn">ð</a></td>
+                    <td><a class="link-icon" href="https://linkedin.com" target="_blank" title="Open LinkedIn">🔗</a></td>
                 `;
                 tbody.appendChild(row);
             });
